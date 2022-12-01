@@ -1,11 +1,13 @@
 import React from "react";
-import './App.css';
+import './global.css'
 
 
 export const App = () => {
   return(
-    <>
-      <div>Hello</div>
-    </>
+    <div className="content">
+        <header>
+          
+        </header>
+    </div>
   )
 }
