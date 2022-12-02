@@ -1,5 +1,8 @@
 import React from "react";
-import { auth } from "../services/firebaseConfig";
+import {getAuth} from "firebase/auth";
+import { app } from '../services/firebaseConfig';
+
+const auth = getAuth(app);
 
 
 export const SignOut = (props) => {

@@ -148,9 +148,8 @@ p {
   }
   
 .sent p {
-    color: white;
-    background: #0b93f6;
-    align-self: flex-end;
+    background: #e5e5ea;
+    color: black;
   }
 .received p {
     background: #e5e5ea;

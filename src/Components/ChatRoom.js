@@ -1,8 +1,10 @@
 import { addDoc, orderBy, limit, collection, query, serverTimestamp } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import React, { useState } from "react";
-import { auth, databaseApp } from "../services/firebaseConfig";
+import { app, databaseApp } from "../services/firebaseConfig";
+import {getAuth} from "firebase/auth";
 
+const auth = getAuth(app);
 
 export const ChatRoom = (props) =>{
 
@@ -16,7 +18,7 @@ export const ChatRoom = (props) =>{
 
         const {photoURL, uid} = auth.currentUser;
 
-        console.log(formValue);
+        console.log(auth);
 
         await addDoc(messagesRef, {
             text: formValue,
@@ -48,7 +50,9 @@ export const ChatRoom = (props) =>{
 export const ChatMessage = (props) =>{
     const {text, uid, photoURL} = props.message;
 
-    const messageClass = uid === auth.currentUser.uid ? 'send' : 'received';
+    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+
+    console.log(messageClass);
 
     return(
         <div className={`message ${messageClass}`}>
